@@ -12,6 +12,14 @@ class MutInt:
 
     def __format__(self, fmt):
         return format(self.value, fmt)
+        
+    def __add__(self, other):
+        if isinstance(other, MutInt):
+            return MutInt(self.value + other.value)
+        elif isinstance(other, int):
+            return MutInt(self.value + other)
+        else:
+            return NotImplemented
 
 
 a = MutInt(3)
